@@ -1,0 +1,174 @@
+// strchr.c - Personal implementation of strchr
+#include <stdio.h>
+
+char *my_strchr(const char *str, int ch) {
+    // Cast ch to char for comparison
+    char target = (char)ch;
+
+    // Traverse the string
+    while (*str) {
+        if (*str == target) {
+            return (char *)str; // Return pointer to first occurrence
+        }
+        str++;
+    }
+
+    // Check for null terminator match
+    if (target == '\0') {
+        return (char *)str;
+    }
+
+    return NULL; // Character not found
+}
+
+// Example usage
+int main() {
+    const char *text = "Hello, world!";
+    char *result = my_strchr(text, 'o');
+
+    if (result) {
+        printf("Found 'o' at position: %ld\n", result - text);
+    } else {
+        printf("'o' not found in the string.\n");
+    }
+
+    return 0;
+}
+
+
+Here's a personal implementation of the `strlcat` function in C, which safely concatenates strings while preventing buffer overflows:
+
+```c
+// strlcat.c - Personal implementation of strlcat
+#include <stdio.h>
+#include <string.h>
+
+// Custom strlcat implementation
+size_t my_strlcat(char *dst, const char *src, size_t size) {
+    size_t dst_len = strnlen(dst, size);
+    size_t src_len = strlen(src);
+
+    // If there's no room to concatenate, return size + src_len
+    if (dst_len >= size) {
+        return size + src_len;
+    }
+
+    size_t copy_len = size - dst_len - 1; // Space left for src (excluding null terminator)
+
+    if (copy_len > 0) {
+        strncpy(dst + dst_len, src, copy_len);
+        dst[dst_len + copy_len] = '\0'; // Ensure null termination
+    }
+
+    return dst_len + src_len; // Total length of string tried to create
+}
+
+// Example usage
+int main() {
+    char buffer[20] = "Hello";
+    const char *addition = ", world!";
+    size_t result = my_strlcat(buffer, addition, sizeof(buffer));
+
+    printf("Resulting string: '%s'\n", buffer);
+    printf("Total length attempted: %zu\n", result);
+
+    return 0;
+}
+```
+
+### 🛠 Key Features
+- Prevents buffer overflow by checking available space.
+- Always null-terminates the result (if `size > 0`).
+- Returns the total length of the string it tried to create (useful for truncation detection).
+
+Let me know if you'd like a version that works with wide characters or includes unit tests!
+
+
+#include <stddef.h>
+
+size_t my_strlcpy(char *dst, const char *src, size_t size) {
+    size_t i = 0;
+
+    // Copy characters until we reach size - 1 or end of src
+    if (size > 0) {
+        while (i < size - 1 && src[i] != '\0') {
+            dst[i] = src[i];
+            i++;
+        }
+        dst[i] = '\0'; // Null-terminate
+    }
+
+    // Count and return the length of src
+    while (src[i] != '\0') {
+        i++;
+    }
+
+    return i;
+}
+
+
+#include <stddef.h>
+
+int my_strncmp(const char *s1, const char *s2, size_t n) {
+    size_t i = 0;
+
+    while (i < n) {
+        unsigned char c1 = (unsigned char)s1[i];
+        unsigned char c2 = (unsigned char)s2[i];
+
+        if (c1 != c2 || c1 == '\0' || c2 == '\0') {
+            return c1 - c2;
+        }
+
+        i++;
+    }
+
+    return 0;
+}
+
+
+#include <stddef.h>
+
+char *my_strnstr(const char *haystack, const char *needle, size_t len) {
+    size_t i, j;
+
+    // Empty needle matches at the start
+    if (*needle == '\0') {
+        return (char *)haystack;
+    }
+
+    for (i = 0; i < len && haystack[i] != '\0'; i++) {
+        // Check if needle fits within remaining length
+        for (j = 0; needle[j] != '\0' && i + j < len && haystack[i + j] == needle[j]; j++) {
+            // Continue matching
+        }
+
+        if (needle[j] == '\0') {
+            return (char *)&haystack[i]; // Match found
+        }
+    }
+
+    return NULL; // No match
+}
+
+
+
+const char *my_strrchr(const char *s, int c) {
+    const char *last = NULL;
+
+    while (*s) {
+        if (*s == (char)c) {
+            last = s;
+        }
+        s++;
+    }
+
+    // Check for null terminator match
+    if ((char)c == '\0') {
+        return s;
+    }
+
+    return last;
+}
+
+
