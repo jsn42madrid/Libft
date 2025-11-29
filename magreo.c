@@ -1,27 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   magreo.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 20:07:41 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 21:55:21 by jesolano         ###   ########.fr       */
+/*   Created: 2025/11/29 18:09:43 by jesolano          #+#    #+#             */
+/*   Updated: 2025/11/29 18:10:06 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_bzero(void *s, size_t n)
-{
-	unsigned char	*p;
-	size_t			i;
-
-	p = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		p[i] = 0;
-		i++;
-	}
-}

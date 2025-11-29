@@ -6,122 +6,141 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:45:12 by jesolano          #+#    #+#             */
-/*   Updated: 2025/10/21 12:18:14 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/11/25 21:59:28 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Appends src to string dst, ensuring total length does not exceed dstsize - 1. Returns total length it tried to create (initial dst length + src length). */
-size_t ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-    size_t dstlen;
-    size_t srclen;
-    size_t i;
+/* Appends src to string dst, ensuring total length does not exceed dstsize - 1.
+Returns total length it tried to create (initial dst length + src length). */
 
-    dstlen = 0;
-    srclen = 0;
-    while (dstlen < dstsize && dst[dstlen] != '\0')
-        dstlen++;
-    while (src[srclen] != '\0')
-        srclen++;
-    if (dstlen == dstsize)
-        return dstsize + srclen;
-    i = 0;
-    while (src[i] != '\0' && dstlen + 1 + i < dstsize)
-    {
-        dst[dstlen + i] = src[i];
-        i++;
-    }
-    if (dstlen + i < dstsize)
-        dst[dstlen + i] = '\0';
-    return dstlen + srclen;
+#include "libft.h"
+
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+	size_t	dstlen;
+	size_t	srclen;
+	size_t	i;
+
+	dstlen = 0;
+	srclen = 0;
+	while (dstlen < dstsize && dst[dstlen] != '\0')
+		dstlen++;
+	while (src[srclen] != '\0')
+		srclen++;
+	if (dstlen == dstsize)
+		return (dstsize + srclen);
+	i = 0;
+	while (src[i] != '\0' && dstlen + 1 + i < dstsize)
+	{
+		dst[dstlen + i] = src[i];
+		i++;
+	}
+	if (dstlen + i < dstsize)
+		dst[dstlen + i] = '\0';
+	return (dstlen + srclen);
 }
 
 /*
 NAME
 
-       strlcpy, strlcat — size-bounded string copying and concatenation
+	   strlcpy, strlcat — size-bounded string copying and concatenation
 
 LIBRARY
 
-       Utility functions from BSD systems (libbsd, -lbsd)
+	   Utility functions from BSD systems (libbsd, -lbsd)
 
 SYNOPSIS
 
-       #include <string.h>
-       (See libbsd(7) for include usage.)
+	   #include <string.h>
+	   (See libbsd(7) for include usage.)
 
-       size_t
-       strlcpy(char *dst, const char *src, size_t size);
+	   size_t
+	   strlcpy(char *dst, const char *src, size_t size);
 
-       size_t
-       strlcat(char *dst, const char *src, size_t size);
+	   size_t
+	   strlcat(char *dst, const char *src, size_t size);
 
 DESCRIPTION
 
-       The strlcpy() and strlcat() functions copy and concatenate strings respectively.  They are designed to be
-       safer,  more  consistent,  and less error prone replacements for strncpy(3) and strncat(3).  Unlike those
-       functions, strlcpy() and strlcat() take the full size of the buffer (not just the length)  and  guarantee
-       to  NUL-terminate  the  result (as long as size is larger than 0 or, in the case of strlcat(), as long as
-       there is at least one byte free in dst).  Note that a byte for the NUL should be included in size.   Also
-       note  that  strlcpy()  and strlcat() only operate on true “C” strings.  This means that for strlcpy() src
-       must be NUL-terminated and for strlcat() both src and dst must be NUL-terminated.
+	   The strlcpy() and strlcat() functions copy and concatenate strings 
+	   respectively.  They are designed to be safer,  more  consistent,  
+	   and less error prone replacements for strncpy(3) and strncat(3).  
+	   Unlike those functions, strlcpy() and strlcat() take the full size 
+	   of the buffer (not just the length)  and  guarantee to  NUL-terminate  
+	   the  result (as long as size is larger than 0 or, in the case of 
+	   strlcat(), as long as there is at least one byte free in dst).  
+	   Note that a byte for the NUL should be included in size.   Also
+	   note  that  strlcpy()  and strlcat() only operate on true “C” strings.
+	     This means that for strlcpy() src must be NUL-terminated and for 
+		 strlcat() both src and dst must be NUL-terminated.
 
-       The strlcpy() function copies up to size - 1 characters from the NUL-terminated string src to  dst,  NUL-
-       terminating the result.
+	   The strlcpy() function copies up to size - 1 characters from the 
+	   NUL-terminated string src to  dst,  NUL-terminating the result.
 
-       The  strlcat()  function appends the NUL-terminated string src to the end of dst.  It will append at most
-       size - strlen(dst) - 1 bytes, NUL-terminating the result.
+	   The  strlcat()  function appends the NUL-terminated string src 
+	   to the end of dst.  It will append at most size - strlen(dst) - 
+	   1 bytes, NUL-terminating the result.
 
 RETURN VALUES
 
-       The strlcpy() and strlcat() functions return the total length of the string they tried  to  create.   For
-       strlcpy()  that  means  the  length  of src.  For strlcat() that means the initial length of dst plus the
-       length of src.  While this may seem somewhat confusing, it was done to make truncation detection simple.
+	   The strlcpy() and strlcat() functions return the total length of the 
+	   string they tried  to  create.   For 
+	   strlcpy()  that  means  the  length  of src.  For strlcat() that means 
+	   the initial length of dst plus the 
+	   length of src.  While this may seem somewhat confusing, it was done to 
+	   make truncation detection simple.
 
-       Note, however, that if strlcat() traverses size characters without finding  a  NUL,  the  length  of  the
-       string is considered to be size and the destination string will not be NUL-terminated (since there was no
-       space  for the NUL).  This keeps strlcat() from running off the end of a string.  In practice this should
-       not happen (as it means that either size is incorrect or that dst is not a proper “C” string).  The check
-       exists to prevent potential security problems in incorrect code.
+	   Note, however, that if strlcat() traverses size characters without 
+	   finding  a  NUL,  the  length  of  the string is considered to be 
+	   size and the destination string will not be NUL-terminated 
+	   (since there was no space  for the NUL).  This keeps strlcat() 
+	   from running off the end of a string.  In practice this should
+	   not happen (as it means that either size is incorrect or that 
+	   dst is not a proper “C” string).  The check exists to prevent potential
+	    security problems in incorrect code.
 
 EXAMPLES
 
-       The following code fragment illustrates the simple case:
+	   The following code fragment illustrates the simple case:
 
-             char *s, *p, buf[BUFSIZ];
+			 char *s, *p, buf[BUFSIZ];
 
-             ...
+			 ...
 
-             (void)strlcpy(buf, s, sizeof(buf));
-             (void)strlcat(buf, p, sizeof(buf));
+			 (void)strlcpy(buf, s, sizeof(buf));
+			 (void)strlcat(buf, p, sizeof(buf));
 
-       To detect truncation, perhaps while building a pathname, something like the following might be used:
+	   To detect truncation, perhaps while building a pathname, something l
+	   ike the following might be used:
 
-             char *dir, *file, pname[MAXPATHLEN];
+			 char *dir, *file, pname[MAXPATHLEN];
 
-             ...
+			 ...
 
-             if (strlcpy(pname, dir, sizeof(pname)) >= sizeof(pname))
-                     goto toolong;
-             if (strlcat(pname, file, sizeof(pname)) >= sizeof(pname))
-                     goto toolong;
+			 if (strlcpy(pname, dir, sizeof(pname)) >= sizeof(pname))
+					 goto toolong;
+			 if (strlcat(pname, file, sizeof(pname)) >= sizeof(pname))
+					 goto toolong;
 
-       Since it is known how many characters were copied the first time, things can be sped up a bit by using  a
-       copy instead of an append:
+	   Since it is known how many characters were copied the first time,
+	   things can be sped up a bit by using  a
+	   copy instead of an append:
 
-             char *dir, *file, pname[MAXPATHLEN];
-             size_t n;
+			 char *dir, *file, pname[MAXPATHLEN];
+			 size_t n;
 
-             ...
+			 ...
 
-             n = strlcpy(pname, dir, sizeof(pname));
-             if (n >= sizeof(pname))
-                     goto toolong;
-             if (strlcpy(pname + n, file, sizeof(pname) - n) >= sizeof(pname) - n)
-                     goto toolong;
+			 n = strlcpy(pname, dir, sizeof(pname));
+			 if (n >= sizeof(pname))
+					 goto toolong;
+			 if (strlcpy(pname + n, file, sizeof(pname) - n) 
+			 >= sizeof(pname) - n)
+					 goto toolong;
 
-       However,  one  may  question  the  validity  of  such  optimizations, as they defeat the whole purpose of
-       strlcpy() and strlcat().  As a matter of fact, the first version of this manual page got it wrong.
+	   However,  one  may  question  the  validity  of  such  optimizations, as
+	   they defeat the whole purpose of strlcpy() and strlcat().  As a matter 
+	   of fact, the first version of this manual page got it wrong.
 
 
 */

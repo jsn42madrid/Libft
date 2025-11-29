@@ -6,53 +6,45 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:09:18 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 21:58:35 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/10/21 12:13:11 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ---------- ft_memset.c ---------- */
+* ---------- ft_memset.c ---------- */
 /* Fills the first len bytes of memory area b with the constant byte c. */
-
-#include "libft.h"
-
-void	*ft_memset(void *b, int c, unsigned int len)
+void *ft_memset(void *b, int c, size_t len)
 {
-	unsigned char	*p;
-	unsigned int	i;
+    unsigned char *p = (unsigned char *)b;
+    size_t i;
 
-	p = (unsigned char *)b;
-	i = 0;
-	while (i < len)
-	{
-		p[i] = (unsigned char)c;
-		i++;
-	}
-	return (b);
+    i = 0;
+    while (i < len)
+    {
+        p[i] = (unsigned char)c;
+        i++;
+    }
+    return b;
 }
 
 /*
 NAME
-       memset — set bytes in memory
+
+       memset - fill memory with a constant byte
 
 SYNOPSIS
+
        #include <string.h>
 
        void *memset(void *s, int c, size_t n);
 
 DESCRIPTION
-       The functionality described on this reference page is aligned with  the
-       ISO C  standard.  Any  conflict between the requirements described here
-       and the ISO C standard is unintentional. This  volume  of  POSIX.1‐2017
-       defers to the ISO C standard.
 
-       The memset() function shall copy c (converted to an unsigned char) into
-       each of the first n bytes of the object pointed to by s.
+       The  memset()  function fills the first n bytes of the memory area pointed to by s with the constant byte
+       c.
 
 RETURN VALUE
-       The memset() function shall return s; no return value  is  reserved  to
-       indicate an error.
 
-ERRORS
-       No errors are defined.
+       The memset() function returns a pointer to the memory area s.
+
 
 */

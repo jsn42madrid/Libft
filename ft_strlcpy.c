@@ -6,117 +6,69 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:47:16 by jesolano          #+#    #+#             */
-/*   Updated: 2025/10/21 12:18:36 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/11/25 22:00:04 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Copies up to dstsize - 1 characters from src to dst and null-terminates dst. Returns total length of src. */
-size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
+/* Copies up to dstsize - 1 characters from src to dst and null-terminates dst. 
+Returns total length of src. */
+
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-    size_t srclen;
-    size_t i;
+	size_t	srclen;
+	size_t	i;
 
-    srclen = 0;
-    while (src[srclen] != '\0')
-        srclen++;
-    if (dstsize == 0)
-        return srclen;
-    i = 0;
-    while (i + 1 < dstsize && src[i] != '\0')
-    {
-        dst[i] = src[i];
-        i++;
-    }
-    dst[i] = '\0';
-    return srclen;
+	srclen = 0;
+	while (src[srclen] != '\0')
+		srclen++;
+	if (dstsize == 0)
+		return (srclen);
+	i = 0;
+	while (i + 1 < dstsize && src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (srclen);
 }
-
 /*
+STRLCPY(3)                 Library Functions Manual                 STRLCPY(3)
+
 NAME
-
-       strlcpy, strlcat — size-bounded string copying and concatenation
-
-LIBRARY
-
-       Utility functions from BSD systems (libbsd, -lbsd)
+     strlcpy — size-bounded string copy
 
 SYNOPSIS
+     #include <string.h>
 
-       #include <string.h>
-       (See libbsd(7) for include usage.)
-
-       size_t
-       strlcpy(char *dst, const char *src, size_t size);
-
-       size_t
-       strlcat(char *dst, const char *src, size_t size);
+     size_t
+     strlcpy(char *restrict dst, const char *restrict src, size_t dstsize);
 
 DESCRIPTION
+     The strlcpy() function copies up to dstsize - 1 characters from src to
+     dst, NUL-terminating the result if dstsize is not 0. It is designed to
+     be a safer, more consistent, and less error-prone replacement for
+     strncpy(3). Unlike strncpy(3), strlcpy() takes the full size of the
+     destination buffer and guarantees NUL-termination when there is room.
 
-       The strlcpy() and strlcat() functions copy and concatenate strings respectively.  They are designed to be
-       safer,  more  consistent,  and less error prone replacements for strncpy(3) and strncat(3).  Unlike those
-       functions, strlcpy() and strlcat() take the full size of the buffer (not just the length)  and  guarantee
-       to  NUL-terminate  the  result (as long as size is larger than 0 or, in the case of strlcat(), as long as
-       there is at least one byte free in dst).  Note that a byte for the NUL should be included in size.   Also
-       note  that  strlcpy()  and strlcat() only operate on true “C” strings.  This means that for strlcpy() src
-       must be NUL-terminated and for strlcat() both src and dst must be NUL-terminated.
-
-       The strlcpy() function copies up to size - 1 characters from the NUL-terminated string src to  dst,  NUL-
-       terminating the result.
-
-       The  strlcat()  function appends the NUL-terminated string src to the end of dst.  It will append at most
-       size - strlen(dst) - 1 bytes, NUL-terminating the result.
+     The src and dst pointers must reference valid C strings and buffers.
+     Room for the terminating NUL byte should be included in dstsize.
+     strlcpy() does not write beyond dstsize bytes.
 
 RETURN VALUES
-
-       The strlcpy() and strlcat() functions return the total length of the string they tried  to  create.   For
-       strlcpy()  that  means  the  length  of src.  For strlcat() that means the initial length of dst plus the
-       length of src.  While this may seem somewhat confusing, it was done to make truncation detection simple.
-
-       Note, however, that if strlcat() traverses size characters without finding  a  NUL,  the  length  of  the
-       string is considered to be size and the destination string will not be NUL-terminated (since there was no
-       space  for the NUL).  This keeps strlcat() from running off the end of a string.  In practice this should
-       not happen (as it means that either size is incorrect or that dst is not a proper “C” string).  The check
-       exists to prevent potential security problems in incorrect code.
+     strlcpy() returns the total length of src. This value allows the caller
+     to detect truncation by comparing the return value against dstsize. If
+     the return value is greater than or equal to dstsize, truncation
+     occurred.
 
 EXAMPLES
+     Copy into a fixed-size buffer, checking for truncation:
 
-       The following code fragment illustrates the simple case:
-
-             char *s, *p, buf[BUFSIZ];
-
-             ...
-
-             (void)strlcpy(buf, s, sizeof(buf));
-             (void)strlcat(buf, p, sizeof(buf));
-
-       To detect truncation, perhaps while building a pathname, something like the following might be used:
-
-             char *dir, *file, pname[MAXPATHLEN];
-
-             ...
-
-             if (strlcpy(pname, dir, sizeof(pname)) >= sizeof(pname))
-                     goto toolong;
-             if (strlcat(pname, file, sizeof(pname)) >= sizeof(pname))
-                     goto toolong;
-
-       Since it is known how many characters were copied the first time, things can be sped up a bit by using  a
-       copy instead of an append:
-
-             char *dir, *file, pname[MAXPATHLEN];
-             size_t n;
-
-             ...
-
-             n = strlcpy(pname, dir, sizeof(pname));
-             if (n >= sizeof(pname))
-                     goto toolong;
-             if (strlcpy(pname + n, file, sizeof(pname) - n) >= sizeof(pname) - n)
-                     goto toolong;
-
-       However,  one  may  question  the  validity  of  such  optimizations, as they defeat the whole purpose of
-       strlcpy() and strlcat().  As a matter of fact, the first version of this manual page got it wrong.
-
-
+           char buf[32];
+           size_t n = strlcpy(buf, input, sizeof(buf));
+           if (n >= sizeof(buf)) {
+               #* handle truncation *#
+			   BerkeleySD November 2025 BerkeleySD			   
 */

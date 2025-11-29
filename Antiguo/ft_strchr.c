@@ -6,57 +6,11 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:43:35 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 21:58:54 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/10/21 12:17:50 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ---------- ft_strchr.c ---------- */
-/* Returns pointer to first occurrence of character c in string s, 
-or NULL if not found. */
 
-#include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
-		i++;
-	}
-	if ((char)c == '\0')
-		return ((char *)(s + i));
-	return (0);
-}
-
-/*
-
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-OJO COMPARAR CON LA SIGUIENTE IMPLEMENTACIÖN PROPUESTA POR LA IA 
-EN EL MULTIFICHERO
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
-/* ---------- ft_strchr.c ---------- */
-/* Returns pointer to first occurrence of character c in string s, 
-or NULL if not found. */
-
-char	*ft_strchr(const char *s, int c)
-{
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if ((char)c == '\0')
-		return ((char)*s);
-	return (NULL);
-}
-
-/*
 #include <unistd.h>
 
 char	*ft_strchr(const char *s, int c)
@@ -74,7 +28,51 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)(s + i));
 	return (0);
 }
-*/
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+OJO COMPARAR CON LA SIGUIENTE IMPLEMENTACIÖN PROPUESTA POR LA IA EN EL MULTIFICHERO
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/* ---------- ft_strchr.c ---------- */
+/* Returns pointer to first occurrence of character c in string s, or NULL if not found. */
+char *ft_strchr(const char *s, int c)
+{
+    while (*s)
+    {
+        if (*s == (char)c)
+            return (char *)s;
+        s++;
+    }
+    if ((char)c == '\0')
+        return (char *)s;
+    return NULL;
+}
+
+
+
+
+
+
+#include <unistd.h>
+
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
+		i++;
+	}
+	if ((char)c == '\0')
+		return ((char *)(s + i));
+	return (0);
+}
+
+
 
 /*
 // strchr.c - Personal implementation of strchr
@@ -115,6 +113,10 @@ int main() {
 }
 
 */
+
+
+
+
 
 /*
 TRCHR(3) (simplified)
