@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   zft_strdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:57:21 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 21:59:15 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/11/30 19:57:04 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,33 @@ Returns a pointer to the duplicated string or NULL if allocation fails. */
 
 #include "libft.h"
 
+//#include <stdio.h>
+
+char	*ft_strdup(const char *src)
+{
+	char	*dest;
+	size_t	len;
+
+	len = ft_strlen(src) + 1;
+	dest = malloc(len);
+	if (dest == NULL)
+		return (NULL);
+	ft_memcpy(dest, src, len);
+	return (dest);
+}
+
+/*
+int	main(void)
+{
+	printf("%s\n", ft_strdup("cadena de prueba"));
+}
+*/
+
+
+
+
+
+/*
 char	*strdup(const char *s1)
 {
 	size_t	len;
@@ -37,6 +64,8 @@ char	*strdup(const char *s1)
 	dup[i] = '\0';
 	return (dup);
 }
+*/
+
 
 /*
 STRDUP(3POSIX)             POSIX Programmer's Manual            STRDUP(3POSIX)
