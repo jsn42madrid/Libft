@@ -1,18 +1,29 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/29 19:44:08 by jesolano          #+#    #+#             */
+/*   Updated: 2025/11/29 19:44:29 by jesolano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
- 
-int main(void)
+#include <stdlib.h>
+
+int	main(void)
 {
-    int i;
-    char *s;
- 
-    s = " -9885";
-    i = atoi(s);     /* i = -9885 */
- 
-    printf("i = %d\n",i);
+	int		i;
+	char	*s;
+
+	s = " -9885";
+	i = atoi(s); // i = -9885 
+	printf("i = %d\n", i);
 }
- 
+
 /*******************  Output should be similar to:  ***************
- 
+
 i = -9885
 */

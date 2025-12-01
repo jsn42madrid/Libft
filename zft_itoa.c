@@ -6,7 +6,7 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 16:24:28 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/28 16:43:06 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/01 18:22:53 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,3 +22,55 @@ Descripción:			Utilizando malloc(3), genera una string que
 						represente el valor entero recibido como argumento.
 						Los números negativos tienen que gestionarse.
 */
+
+/*
+ft_itoa
+
+Convert an integer to a newly allocated string.
+✔ Needs malloc and digit counting
+✔ Must handle 0 and INT_MIN
+*/
+
+#include "libft.h"
+
+//función auxiliar de loreto
+static int	ft_digcount(int n)
+{
+	int	ndigs;
+
+	if (n <= 0)
+		ndigs = 1;
+	else
+		ndigs = 0;
+	while (n != 0)
+	{
+		n /= 10;
+		ndigs++;
+	}
+	return (ndigs);
+}
+
+//función principal de irodrigo
+
+char	*ft_itoa(int n)
+{
+	char			*str;
+	size_t			str_len;
+	unsigned int	n_cpy;
+
+	str_len = ft_digcount(n);
+	n_cpy = n;
+	if (n < 0)
+	{
+		n_cpy = -n;
+		str_len++;
+	}
+	if (!(str = ft_calloc(str_len + 1, 1)))
+		return (NULL);
+	str[--str_len] = n_cpy % 10 + '0';
+	while (n_cpy /= 10)
+		str[--str_len] = n_cpy % 10 + '0';
+	if (n < 0)
+		*(str + 0) = '-';
+	return (str);
+}
