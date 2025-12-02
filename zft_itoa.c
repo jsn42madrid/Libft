@@ -6,7 +6,7 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 16:24:28 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/01 18:22:53 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/02 17:50:17 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,21 @@ char	*ft_itoa(int n)
 
 	str_len = ft_digcount(n);
 	n_cpy = n;
+	str = ft_calloc(str_len + 1, 1);
 	if (n < 0)
 	{
 		n_cpy = -n;
 		str_len++;
 	}
-	if (!(str = ft_calloc(str_len + 1, 1)))
+	if (!str)
 		return (NULL);
 	str[--str_len] = n_cpy % 10 + '0';
-	while (n_cpy /= 10)
+	n_cpy = n_cpy / 10;
+	while (n_cpy)
 		str[--str_len] = n_cpy % 10 + '0';
 	if (n < 0)
 		*(str + 0) = '-';
 	return (str);
 }
+//linea original aquí: if (!(str = ft_calloc(str_len + 1, 1)))
+// Tampoco le gusta if (!str ) ni str == '\0'
