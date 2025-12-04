@@ -6,7 +6,7 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:51:08 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/01 16:32:17 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/04 12:48:20 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,8 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd(n + '0', fd);
 }
-                                                                                                                                                                                                                         
+/*int	main(void)
+{
+	ft_putnbr_fd(-2147483648, 1);
+	return (0);
+}*/	

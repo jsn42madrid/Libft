@@ -6,9 +6,27 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:41:28 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/01 11:57:07 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/04 21:54:10 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+Nombre de función		ft_putstr_fd
+
+Prototipo				void ft_putstr_fd(char *s, int fd);
+
+Archivos a entregar		-
+
+Parámetros				s: La string a enviar.
+						fd: El file descriptor sobre el que escribir.
+
+Valor devuelto			Nada
+
+Funciones autorizadas	write
+
+Descripción				Envía la string ’s’ al file descriptor especificado.
+
+*/
 
 /*
 Write a string to a file descriptor.

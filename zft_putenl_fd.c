@@ -6,9 +6,28 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:59:34 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/01 13:24:51 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/04 21:54:37 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+Nombre de función		ft_putendl_fd
+
+Prototipo				void ft_putendl_fd(char *s, int fd);
+
+Archivos a entregar		-
+
+Parámetros				s: La string a enviar.
+						fd: El file descriptor sobre el que escribir.
+
+Valor devuelto			Nada
+
+Funciones autorizadas	write
+
+Descripción				Envía la string ’s’ al file descriptor dado,
+						seguido de un salto de línea
+
+*/
 
 /*
 ft_putendl_fd

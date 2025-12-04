@@ -6,9 +6,28 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:18:17 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/01 11:38:24 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/04 21:53:37 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+Nombre de función		ft_putchar_fd
+
+Prototipo				void ft_putchar_fd(char c, int fd);
+
+Archivos a entregar		-
+
+Parámetros				c: El carácter a enviar.
+						fd: El file descriptor sobre el que escribir.
+
+Valor devuelto			Nada
+
+Funciones autorizadas	write
+
+Descripción				Envía el carácter ’c’ al file descriptor
+						especificado
+
+*/
 
 /*
 Write a single character to a file descriptor.

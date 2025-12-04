@@ -6,7 +6,7 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 16:24:28 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/02 17:50:17 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/04 12:44:42 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ Parámetros:				n:   el entero a convertir.
 Valor devuelto:			La string que represente el número.
 						NULL si falla la reserva de memoria.
 Funciones autorizadas:	malloc
-Descripción:			Utilizando malloc(3), genera una string que
+Descripción:			Utilizan del isalpha es: %d\n ", isalpha(112));
+						do malloc(3), genera una string que
 						represente el valor entero recibido como argumento.
 						Los números negativos tienen que gestionarse.
 */

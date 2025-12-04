@@ -6,7 +6,7 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:57:21 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/30 19:57:04 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/04 12:49:46 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@ int	main(void)
 }
 */
 
-
-
-
-
 /*
 char	*strdup(const char *s1)
 {
@@ -65,7 +61,6 @@ char	*strdup(const char *s1)
 	return (dup);
 }
 */
-
 
 /*
 STRDUP(3POSIX)             POSIX Programmer's Manual            STRDUP(3POSIX)
