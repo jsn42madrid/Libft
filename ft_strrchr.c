@@ -6,9 +6,13 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:51:42 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 22:01:02 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 21:03:24 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// ft_strrchr		find last occurrence of character in string
+
+/* Returns pointer to last occurrence of character c in string s */
 
 #include "libft.h"
 
@@ -29,28 +33,3 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)(s + i));
 	return (last);
 }
-
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-OJO COMPARAR CON LA SIGUIENTE IMPLEMENTACIÓN 
-PROPUESTA POR LA IA EN EL MULTIFICHERO
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
-/* ---------- ft_strrchr.c ---------- */
-/* Returns pointer to last occurrence of character c in string s
-or NULL if not found. */
-/*
-char *ft_strrchr(const char *s, int c)
-{
-    const char *last;
-
-    last = NULL;
-    while (*s)
-    {
-        if (*s == (char)c)
-            last = s;
-        s++;
-    }
-    if ((char)c == '\0')
-        return (char *)s;
-    return (char *)last;
-}*/

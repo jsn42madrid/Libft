@@ -6,34 +6,13 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 19:14:47 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/05 22:27:19 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:55:05 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-Nombre de función		ft_strmapi
+// ft_strmapi	apply function to each character of string creating new string
 
-Prototipo				char *ft_strmapi(char const *s, char (*f)(unsigned
-						int, char));
-
-Archivos a entregar		-
-
-Parámetros				s: La string que iterar.
-						f: La función a aplicar sobre cada carácter.
-
-Valor devuelto			La string creada tras el correcto uso de ’f’ sobre
-						cada carácter.
-						NULL si falla la reserva de memoria.
-
-Funciones autorizadas	malloc
-
-Descripción				Aplica la función ’f’ a cada carácter de la cadena
-						’s’, pasando su índice como primer argumento y el
-						propio carácter como segundo argumento. Se crea una
-						nueva cadena (utilizando malloc(3)) para recoger
-						los resultados de las sucesivas aplicaciones de ’f’.
-
-*/
+/*creates new string by applying function to chars*/
 
 #include "libft.h"
 //#include <stdio.h>
@@ -68,7 +47,32 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 int	main()
 {
-	char	str[] = "Hola mundo";
+	char	str[] = "Hola Mundo";
 
 	printf("%s\n", ft_strmapi(str, ft_test));
 }*/
+
+/*
+Nombre de función		ft_strmapi
+
+Prototipo				char *ft_strmapi(char const *s, char (*f)(unsigned
+						int, char));
+
+Archivos a entregar		-
+
+Parámetros				s: La string que iterar.
+						f: La función a aplicar sobre cada carácter.
+
+Valor devuelto			La string creada tras el correcto uso de ’f’ sobre
+						cada carácter.
+						NULL si falla la reserva de memoria.
+
+Funciones autorizadas	malloc
+
+Descripción				Aplica la función ’f’ a cada carácter de la cadena
+						’s’, pasando su índice como primer argumento y el
+						propio carácter como segundo argumento. Se crea una
+						nueva cadena (utilizando malloc(3)) para recoger
+						los resultados de las sucesivas aplicaciones de ’f’.
+
+*/

@@ -6,9 +6,11 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:54:57 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 22:01:10 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 21:12:20 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// ft_tolower		convert uppercase letter to lowercase
 
 #include "libft.h"
 

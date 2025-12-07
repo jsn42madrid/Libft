@@ -6,32 +6,15 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 21:16:55 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/05 22:27:06 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:40:22 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-Nombre de función		ft_strjoin
+// ft_strjoin		concatenate two strings into a new string
 
-Prototipo				char *ft_strjoin(char const *s1, char const *s2);
-
-Archivos a entregar		-
-
-Parámetros				s1: La primera string.
-						s2: La string a añadir a ’s1’.
-
-Valor devuelto			La nueva string.
-						NULL si falla la reserva de memoria.
-
-Funciones autorizadas	malloc
-
-Descripción				Reserva (con malloc(3)) y devuelve una nueva
-						string, formada por la concatenación de ’s1’ y ’s2’.
-
-*/
+//#include <stdio.h>
 
 #include "libft.h"
-//#include <stdio.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -61,5 +44,25 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 /*int	main(void)
 {
-	printf("%s\n", ft_strjoin("Mas vale prevenir", "que curar"));
+	printf("%s\n", ft_strjoin("Agua que no has de beber", "déjala correr"));
 }*/
+
+/*
+Nombre de función		ft_strjoin
+
+Prototipo				char *ft_strjoin(char const *s1, char const *s2);
+
+Archivos a entregar		-
+
+Parámetros				s1: La primera string.
+						s2: La string a añadir a ’s1’.
+
+Valor devuelto			La nueva string.
+						NULL si falla la reserva de memoria.
+
+Funciones autorizadas	malloc
+
+Descripción				Reserva (con malloc(3)) y devuelve una nueva
+						string, formada por la concatenación de ’s1’ y ’s2’.
+
+*/

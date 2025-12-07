@@ -6,34 +6,35 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:50:09 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 22:00:54 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:57:15 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ---------- ft_strnstr.c ---------- */
-/* Searches for the first occurrence of needle in haystack within len bytes.
+//ft_strnstr		locate a substring in a string within len bytes
+
+/* Searches for the first occurrence of little in big within len bytes.
 Returns pointer to start of substring or NULL if not found. */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
 
-	if (!*needle)
-		return ((char *)haystack);
+	if (!*little)
+		return ((char *)big);
 	i = 0;
-	while (haystack[i] != '\0' && i < len)
+	while (big[i] != '\0' && i < len)
 	{
-		if (haystack[i] == needle[0])
+		if (big[i] == little[0])
 		{
 			j = 0;
-			while (needle[j] != '\0' && i + j < len && haystack[i + j]
-				== needle[j])
+			while (little[j] != '\0' && i + j < len && big[i + j]
+				== little[j])
 				j++;
-			if (needle[j] == '\0')
-				return ((char *)(haystack + i));
+			if (little[j] == '\0')
+				return ((char *)(big + i));
 		}
 		i++;
 	}
@@ -83,6 +84,5 @@ EXAMPLES
 			 char *ptr;
 
 			 ptr = strnstr(largestring, smallstring, 4);
-
 
 */

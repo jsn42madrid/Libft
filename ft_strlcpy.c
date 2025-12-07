@@ -6,9 +6,11 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:47:16 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 22:00:04 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:47:38 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// ft_strlcpy		copy string with size limit
 
 /* Copies up to dstsize - 1 characters from src to dst and null-terminates dst. 
 Returns total length of src. */

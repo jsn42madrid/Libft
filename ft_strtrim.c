@@ -6,31 +6,11 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:11:14 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/05 21:54:04 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 21:05:06 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-Nombre de función		ft_strtrim
-
-Prototipo				char *ft_strtrim(char const *s1, char const *set);
-
-Archivos a entregar		-
-
-Parámetros				s1: La string que debe ser recortada.
-						set: Los caracteres a eliminar de la string.
-
-Valor devuelto 			La string recortada.
-						NULL si falla la reserva de memoria.
-
-Funciones autoizadas	malloc
-
-Descripción 			Elimina todos los caracteres de la string ’set’
-						desde el principio y desde el final de ’s1’, hasta
-						encontrar un caracter no perteneciente a ’set’. La
-						string resultante se devuelve con una reserva de
-						malloc(3
-*/
+// ft_strtrim		trim characters from start and end of string
 
 #include "libft.h"
 
@@ -60,3 +40,25 @@ char	*ft_strtrim(const char *s, const char *set)
 	free(trimmed);
 	return (0);
 } */
+
+/*
+Nombre de función		ft_strtrim
+
+Prototipo				char *ft_strtrim(char const *s1, char const *set);
+
+Archivos a entregar		-
+
+Parámetros				s1: La string que debe ser recortada.
+						set: Los caracteres a eliminar de la string.
+
+Valor devuelto 			La string recortada.
+						NULL si falla la reserva de memoria.
+
+Funciones autoizadas	malloc
+
+Descripción 			Elimina todos los caracteres de la string ’set’
+						desde el principio y desde el final de ’s1’, hasta
+						encontrar un caracter no perteneciente a ’set’. La
+						string resultante se devuelve con una reserva de
+						malloc(3
+*/

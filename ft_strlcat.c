@@ -6,9 +6,11 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:45:12 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 21:59:28 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:41:52 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// ft_strlcat		concatenate strings with size limit
 
 /* Appends src to string dst, ensuring total length does not exceed dstsize - 1.
 Returns total length it tried to create (initial dst length + src length). */

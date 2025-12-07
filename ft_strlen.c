@@ -6,9 +6,11 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 18:04:56 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 22:00:23 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:48:09 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// ft_strlen		calculate length of string
 
 #include "libft.h"
 

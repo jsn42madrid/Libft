@@ -6,9 +6,11 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:08:36 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 21:56:04 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 19:55:21 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// isdigit		checks if character is a digit
 
 #include "libft.h"
 

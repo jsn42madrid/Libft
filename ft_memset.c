@@ -6,11 +6,12 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:09:18 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 21:58:35 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:10:02 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ---------- ft_memset.c ---------- */
+// ft_memset		fill memory with a constant byte
+
 /* Fills the first len bytes of memory area b with the constant byte c. */
 
 #include "libft.h"

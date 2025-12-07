@@ -6,16 +6,18 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 21:45:05 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/05 22:26:54 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:28:11 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// ft_split		split string into array of substrings
 
 #include "libft.h"	
 
 #include <stdlib.h>
 
 /*
-** Count how many substrings will be created
+Count how many substrings will be created
 */
 static int	ft_count_words(const char *s, char c)
 {
@@ -39,7 +41,7 @@ static int	ft_count_words(const char *s, char c)
 }
 
 /*
-** Duplicate a substring of length len
+Duplicate a substring of length len
 */
 static char	*ft_word_dup(const char *start, int len)
 {
@@ -60,7 +62,7 @@ static char	*ft_word_dup(const char *start, int len)
 }
 
 /*
-** Free all allocated substrings if error occurs
+Free all allocated substrings if error occurs
 */
 static void	ft_free_all(char **arr, int i)
 {
@@ -73,7 +75,7 @@ static void	ft_free_all(char **arr, int i)
 }
 
 /*
-** Extract one word starting at s until delimiter or end
+Extract one word starting at s until delimiter or end
 */
 static char	*ft_extract_word(const char **s, char c)
 {
@@ -91,9 +93,9 @@ static char	*ft_extract_word(const char **s, char c)
 }
 
 /*
-** Main split_string function (≤25 lines)
+Main split_string function (≤25 lines)
 */
-char	**split_string(const char *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	char	**res;
 	int		i;

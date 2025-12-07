@@ -6,9 +6,40 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 18:33:27 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/05 22:26:02 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 21:11:25 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// ft_substr		extract substring from string
+
+#include "libft.h"
+//#include <stdio.h>
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*str;
+	size_t	size;
+
+	if (!s)
+		return (NULL);
+	if (start >= (unsigned int)ft_strlen(s))
+		return (ft_strdup(""));
+	size = ft_strlen(s + start);
+	if (size < len)
+		len = size;
+	str = malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s + start, len + 1);
+	return (str);
+}
+
+// int	main(void)
+// {
+// 	printf("%s\n", ft_substr("En un lugar de La Mancha", 1, 11));
+// 	printf("%s\n", ft_substr("En un lugar de La Mancha", 1, 5));
+// 	printf("%s\n", ft_substr("En un lugar de La Mancha", 8, 3));
+// }
 
 /*
 
@@ -35,32 +66,3 @@ Descripción				Reserva (con malloc(3)) y devuelve una substring de
 
 
 */
-
-#include "libft.h"
-//#include <stdio.h>
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*str;
-	size_t	size;
-
-	if (!s)
-		return (NULL);
-	if (start >= ft_strlen(s))
-		return (ft_strdup(""));
-	size = ft_strlen(s + start);
-	if (size < len)
-		len = size;
-	str = malloc((len + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	ft_strlcpy(str, s + start, len + 1);
-	return (str);
-}
-
-/*int	main(void)
-{
-	printf("%s\n", ft_substr("Buenos días", 1, 11));
-	printf("%s\n", ft_substr("Buenos días", 1, 5));
-	printf("%s\n", ft_substr("Buenos días", 8, 3));
-}*/

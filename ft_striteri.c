@@ -6,9 +6,25 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 13:28:16 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/05 21:48:08 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:35:05 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// ft_striteri		apply function to each char of string with index
+
+#include "libft.h"
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	int	c;
+
+	c = 0;
+	while (s[c] != '\0')
+	{
+		f(c, &s[c]);
+		c++;
+	}
+}
 
 /*
 Nombre de función		ft_striteri
@@ -31,17 +47,3 @@ Descripción				A cada carácter de la string ’s’, aplica la función
 						carácter, que podrá modificarse si es necesario.
 
 */
-
-#include "libft.h"
-
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
-{
-	int	c;
-
-	c = 0;
-	while (s[c] != '\0')
-	{
-		f(c, &s[c]);
-		c++;
-	}
-}

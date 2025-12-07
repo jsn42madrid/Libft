@@ -6,31 +6,13 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 14:51:08 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/05 22:25:20 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:21:26 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-Nombre de función		ft_putnbr_fd
-
-Prototipo				void ft_putnbr_fd(int n, int fd);
-
-Archivos a entregar		-
-
-Parámetros				n: El número que enviar.
-						fd: El file descriptor sobre el que escribir.
-
-Valor devuelto			Nada
-
-Funciones autorizadas	write
-
-Descripción				Envía el número ’n’ al file descriptor dado.
-
-*/
+// ft_putnbr_fd		write integer to file descriptor
 
 /*
-ft_putnbr_fd
-
 Write an integer as characters to a file descriptor.
 ✔ Recursion or buffer
 ✔ Must handle negative numbers and INT_MIN
@@ -58,6 +40,25 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd(n + '0', fd);
 }
+
+/*
+Nombre de función		ft_putnbr_fd
+
+Prototipo				void ft_putnbr_fd(int n, int fd);
+
+Archivos a entregar		-
+
+Parámetros				n: El número que enviar.
+						fd: El file descriptor sobre el que escribir.
+
+Valor devuelto			Nada
+
+Funciones autorizadas	write
+
+Descripción				Envía el número ’n’ al file descriptor dado.
+
+*/
+
 /*int	main(void)
 {
 	ft_putnbr_fd(-2147483648, 1);

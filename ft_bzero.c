@@ -6,9 +6,11 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:07:41 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/05 21:42:41 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 19:50:23 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// bzero		zeros out a block of memory
 
 #include "libft.h"
 

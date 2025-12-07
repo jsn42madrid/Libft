@@ -6,9 +6,11 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:08:17 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 21:55:51 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 19:54:33 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// isalpha		checks if character is alphabetic
 
 #include "libft.h"
 

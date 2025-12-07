@@ -6,11 +6,12 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:48:38 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 22:00:40 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:55:58 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ---------- ft_strncmp.c ---------- */
+// ft_strncmp		compare strings up to n characters
+
 /* Compares up to n characters of s1 and s2 lexicographically.
 Returns difference of first differing characters or 0 if equal. */
 

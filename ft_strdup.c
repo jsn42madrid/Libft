@@ -6,13 +6,16 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:57:21 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/05 22:25:44 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:34:09 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ---------- ft_strdup.c ---------- */
-/* Duplicates the given string by allocating memory and copying its contents.
-Returns a pointer to the duplicated string or NULL if allocation fails. */
+// ft_strdup		duplicate string
+
+/* 
+Duplicates the given string by allocating memory and copying its contents.
+Returns a pointer to the duplicated string or NULL if allocation fails.
+*/
 
 #include "libft.h"
 
@@ -35,30 +38,6 @@ char	*ft_strdup(const char *src)
 int	main(void)
 {
 	printf("%s\n", ft_strdup("cadena de prueba"));
-}
-*/
-
-/*
-char	*strdup(const char *s1)
-{
-	size_t	len;
-	size_t	i;
-	char	*dup;
-
-	len = 0;
-	while (s1[len] != '\0')
-		len++;
-	dup = (char *)malloc(len + 1);
-	if (!dup)
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		dup[i] = s1[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
 }
 */
 

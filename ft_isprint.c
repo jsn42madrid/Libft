@@ -6,9 +6,11 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:08:44 by jesolano          #+#    #+#             */
-/*   Updated: 2025/11/25 21:56:17 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 19:55:41 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// isprint		checks if character is printable
 
 #include "libft.h"
 

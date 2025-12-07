@@ -6,9 +6,66 @@
 /*   By: jesolano <jesolano@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 16:24:28 by jesolano          #+#    #+#             */
-/*   Updated: 2025/12/05 22:20:18 by jesolano         ###   ########.fr       */
+/*   Updated: 2025/12/07 20:44:43 by jesolano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// ft_itoa		converts integer to string
+
+/*ft_itoa
+Convert an integer to a newly allocated string.
+✔ Needs malloc and digit counting
+✔ Must handle 0 and INT_MIN*/
+
+#include "libft.h"
+
+// helper function to count digits
+
+int	ft_digcount(int n)
+{
+	int	digits;
+
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		n = -n;
+	digits = 0;
+	while (n > 0)
+	{
+		n = n / 10;
+		digits++;
+	}
+	return (digits);
+}
+
+char	*ft_itoa(int n)
+{
+	char			*str;
+	size_t			len;
+	unsigned int	nb;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	len = ft_digcount(n);
+	if (n < 0)
+	{
+		nb = -n;
+		len++;
+	}
+	else
+		nb = n;
+	str = ft_calloc(len + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	while (len--)
+	{
+		str[len] = nb % 10 + '0';
+		nb /= 10;
+	}
+	if (n < 0)
+		str[0] = '-';
+	return (str);
+}
 
 /*
 Nombre de función:		ft_itoa
@@ -22,62 +79,4 @@ Descripción:			Utilizan del isalpha es: %d\n ", isalpha(112));
 						do malloc(3), genera una string que
 						represente el valor entero recibido como argumento.
 						Los números negativos tienen que gestionarse.
-*/
-
-/*
-ft_itoa
-
-Convert an integer to a newly allocated string.
-✔ Needs malloc and digit counting
-✔ Must handle 0 and INT_MIN
-*/
-
-#include "libft.h"
-
-//función auxiliar de loreto
-static int	ft_digcount(int n)
-{
-	int	ndigs;
-
-	if (n <= 0)
-		ndigs = 1;
-	else
-		ndigs = 0;
-	while (n != 0)
-	{
-		n /= 10;
-		ndigs++;
-	}
-	return (ndigs);
-}
-
-//función principal de irodrigo
-
-char	*ft_itoa(int n)
-{
-	char			*str;
-	size_t			str_len;
-	unsigned int	n_cpy;
-
-	str_len = ft_digcount(n);
-	n_cpy = n;
-	str = ft_calloc(str_len + 1, 1);
-	if (n < 0)
-	{
-		n_cpy = -n;
-		str_len++;
-	}
-	if (!str)
-		return (NULL);
-	str[--str_len] = n_cpy % 10 + '0';
-	n_cpy = n_cpy / 10;
-	while (n_cpy)
-		str[--str_len] = n_cpy % 10 + '0';
-	if (n < 0)
-		*(str + 0) = '-';
-	return (str);
-}
-/*
-linea original aquí: if (!(str = ft_calloc(str_len + 1, 1)))
-Tampoco le gusta if (!str ) ni str == '\0'
 */
